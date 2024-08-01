@@ -1,0 +1,124 @@
+Python 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> num=12
+>>> if num>5:
+... print('greater than 5')
+  File "<stdin>", line 2
+    print('greater than 5')
+    ^
+IndentationError: expected an indented block after 'if' statement on line 1
+>>> if num>5:
+...  print('greater than 5')
+...  if num<=45:
+...  print('The value is between 5 and 45')
+  File "<stdin>", line 4
+    print('The value is between 5 and 45')
+    ^
+IndentationError: expected an indented block after 'if' statement on line 3
+>>>  if num>5:
+  File "<stdin>", line 1
+    if num>5:
+IndentationError: unexpected indent
+>>> if num>5:
+...    print('greater than 5')
+...  if num<=45:
+  File "<stdin>", line 3
+    if num<=45:
+               ^
+IndentationError: unindent does not match any outer indentation level
+>>> if num>5:
+...    print('greater than 5')
+... if num<=45:
+  File "<stdin>", line 3
+    if num<=45:
+    ^^
+SyntaxError: invalid syntax
+>>> if num>5:
+...    print('greater than 5')
+...    if num<=45:
+...       print('The value is between 5 and 45')
+...
+greater than 5
+The value is between 5 and 45
+>>> num = 7
+>>> if num>3:
+...    print('3')
+...    if num <5:
+...       print('5')
+...       if num==7:
+...          print('7')
+...
+3
+>>> x=4
+>>> if x==5:
+...    print('yes')
+... else:
+...    print('no')
+...
+no
+>>> if 2*2=8:
+  File "<stdin>", line 1
+    if 2*2=8:
+       ^^^
+SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+>>> if 2*2==8:
+...    print('if')
+... else:
+...    print('else')
+...
+else
+>>> num=7
+>>> fi num==5:
+  File "<stdin>", line 1
+    fi num==5:
+       ^^^
+SyntaxError: invalid syntax
+>>> if num==5:
+...    print('Number is 5')
+... elif num==11:
+...    print('Number is 11')
+... elif num==7:
+...    print('Number is 7')
+... else:
+...    print('Number isn't 5,11 or 7')
+  File "<stdin>", line 8
+    print('Number isn't 5,11 or 7')
+          ^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>>
+>>> num=7
+>>> fi num==5:
+  File "<stdin>", line 1
+    fi num==5:
+       ^^^
+SyntaxError: invalid syntax
+>>> num=7
+>>> if num==5:
+...    print('Number is 5')
+... elif num==11:
+...    print('Number is 11')
+... elif num==7:
+...    print('Number is 7')
+... else:
+...    print("Number isn't 5,11 or 7")
+...
+Number is 7
+>>> if(1==1) and (2+2>3):
+...    print('True')
+... else:
+...    print('false')
+...
+True
+>>> ^A^A^Z^X
+KeyboardInterrupt
+>>> ^X
+KeyboardInterrupt
+>>> ^Xinvalid syntax^B^N
+KeyboardInterrupt
+>>> invalid syntax
+KeyboardInterrupt
+>>>
+KeyboardInterrupt
+>>>
+KeyboardInterrupt
+>>>    print('false')
