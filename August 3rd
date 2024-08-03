@@ -1,0 +1,46 @@
+Python 3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> myfile=open("filename.txt")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: 'filename.txt'
+>>> myfile=open("filename.txt"L:\filename.txt")
+  File "<stdin>", line 1
+    myfile=open("filename.txt"L:\filename.txt")
+                ^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+>>> myfile=open("L:\filename.txt")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+OSError: [Errno 22] Invalid argument: 'L:\x0cilename.txt'
+>>> myfile=open("L:/filename.txt")
+>>>
+>>> myfile=open("L:/filename.txt",'w')
+>>> myfile=open("L:/filename.txt",'r')
+>>> file=open("L:/filename.txt",'r')
+>>> cont=file.read()
+>>> print(cont)
+
+>>> file.close()
+>>> file=open("L:/filename.txt",'r')
+>>> cont=file.read()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xac in position 2: illegal multibyte sequence
+>>> print(cont)
+
+>>> file=open("L:/filename.txt",'r',ending='utf-8')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'ending' is an invalid keyword argument for open()
+>>> file=open("L:/filename.txt",'r',encoding='utf-8')
+>>> cont=file.read()
+>>> print(cont)
+催东山的蝉
+
+>>>
+>>> import datetime
+>>> datetime.datetime.now()
+datetime.datetime(2024, 8, 3, 11, 8, 18, 747211)
+>>>
+#今日大成功，解决了文件打开与读取的问题，再接再厉
