@@ -1,0 +1,61 @@
+"""#file=open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8')
+#cont=file.read()
+#print(cont)
+#file.close()"""
+
+"""file=open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8')
+print(file.read(16))
+print(file.read(4))
+print(file.read(4))
+print(file.read())
+file.close()"""
+
+"""file=open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8')
+for i in range(21):
+    print(file.read(4))
+file.close()"""
+
+"""file=open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8')
+file.read()
+print('Re-reading')
+print(file.read())
+print('Finished')
+file.close()"""
+
+#open a file,read its contents and print its length
+"""file=open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8')
+str=file.read()
+print(len(str))
+file.close()"""
+
+#read a row
+"""file=open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8')
+print(file.readlines())
+file.close()"""
+"""file=open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8')
+for line in file:
+    print(line)   
+file.close()
+"""
+
+"""def new_func():
+    len(open('D:/VScode/socra/\pypractice/filename_1.txt','r',encoding='utf-8').readlines())
+
+new_func()"""
+
+#write to the file
+#new discovery,if there is on file,'w'will create a new file to write the string
+"""file=open('D:/VScode/socra/\pypractice/filename_2.txt','w',encoding='utf-8')
+file.write('write the string in the second file')
+file.close()
+
+file=open('D:/VScode/socra/\pypractice/filename_2.txt','r',encoding='utf-8')
+print(file.read())
+file.close()"""
+
+#when a file is opened in read-write mode,the existing contents of the file are deleted
+"""
+代码打错了，pypractice前面多了一个斜杠修改之后len(open('D:/VScode/socra/pypractice/filename_1.txt','r',encoding='utf-8').readlines())
+就可以正常运行
+file=open('D:/VScode/socra/pypractice/filename_2.txt','r',encoding='utf-8')
+"""
