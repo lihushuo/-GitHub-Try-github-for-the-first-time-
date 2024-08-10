@@ -1,0 +1,430 @@
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> help
+Type help() for interactive help, or help(object) for help about object.
+>>> help()
+Welcome to Python 3.12's help utility! If this is your first time using
+Python, you should definitely check out the tutorial at
+https://docs.python.org/3.12/tutorial/.
+
+Enter the name of any module, keyword, or topic to get help on writing
+Python programs and using Python modules.  To get a list of available
+modules, keywords, symbols, or topics, enter "modules", "keywords",
+"symbols", or "topics".
+
+Each module also comes with a one-line summary of what it does; to list
+the modules whose name or summary contain a given string such as "spam",
+enter "modules spam".
+
+To quit this help utility and return to the interpreter,
+enter "q" or "quit".
+
+help> q
+
+You are now leaving help and returning to the Python interpreter.
+If you want to ask for help on a particular object directly from the
+interpreter, you can type "help(object)".  Executing "help('string')"
+has the same effect as typing a particular string at the help> prompt.
+>>> a=42  #create an object<42>
+>>> b=a #Adding object pointing<42>
+>>> c=[a] #f adding object pointing <42>
+>>> del a #Decrease ref.cont of <42>
+>>> b=100 #Decrease ref.cont of <42>
+>>> c[0]=-1 #Decrease ref.cont of <42>
+>>> class Queue:
+...     def __init__(self.contents):
+  File "<stdin>", line 2
+    def __init__(self.contents):
+                     ^
+SyntaxError: invalid syntax
+>>> class Queue:
+...     def __init__(self,contents):
+...             self._hiddenlist=list(contens)
+...     def push(self):
+...
+KeyboardInterrupt
+>>> class Queue:
+...     def __init__(self,contents):
+...             self._hiddenlist=list(contens)
+...     def push(self,value):
+...             self._hiddenlist.insert(0,value)
+...     def __repr__(self):
+...             return "Queue({})".format(self._hiddenlist)
+...
+>>> queue=Queue([1,2,3])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in __init__
+NameError: name 'contens' is not defined. Did you mean: 'contents'?
+>>> class Queue:
+...     def __init__(self,contents):
+...             self._hiddenlist=list(contents)
+...     def push(self,value):
+...             self._hiddenlist.insert(0,value)
+...     def __repr__(self):
+...             return "Queue({})".format(self._hiddenlist)
+...
+>>> queue=Queue([1,2,3])
+>>> queue.push(0)
+>>> print(queue)
+Queue([0, 1, 2, 3])
+>>> queue.pop()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Queue' object has no attribute 'pop'
+>>> print(queue._hiddenlist)
+[0, 1, 2, 3]
+>>> class Spam:
+...     __egg=7
+...     def print_egg(self):
+...             print(self.__egg)
+...
+>>> s=Spam()
+>>> s.print_egg()
+7
+>>> print(s._Spam__egg)
+7
+>>> print(s.__egg)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Spam' object has no attribute '__egg'
+>>> class Rectangle:
+...     deef __init__(self,width,height):
+  File "<stdin>", line 2
+    deef __init__(self,width,height):
+         ^^^^^^^^
+SyntaxError: invalid syntax
+>>> class Rectangle:
+...     def __init__(self,width,height):
+...             self.width=width
+...             self.height=height
+...     def calculate_area(self):
+...             return self.width*self.height
+...     @classmethod
+...     def new_square(cls,side_length):
+...             return cls(side_length,side_length)
+...
+>>> square = Rectangle.new_square(5)
+>>> print(square.calculate_area())
+25
+>>> class Pizza:
+...     def __init__(self,topping):
+...             self.topping=topping
+...     @staticmethod
+...     def validate_topping(topping):
+...             if topping == 'pineapple':
+...                     raise ValueError('No pineapples!')
+...             else:
+...                     return True
+...
+>>> ingredients=['cheese','onions','spam']
+>>> if all(Pizza.validate_topping(i) for i in ingredients):
+...     pizza=Pizza(ingredients)
+...
+>>> class Pizza:
+...     def __init__(self,toppings):
+...             self.toppoings-toppings
+...             self._pineapple_allowed=False
+...     @property
+...     def pinrapple_allowed(False):
+  File "<stdin>", line 6
+    def pinrapple_allowed(False):
+                          ^^^^^
+SyntaxError: invalid syntax
+>>> class Pizza:
+...     def __init__(self,toppings):
+...             self.toppoings-toppings
+...             self._pineapple_allowed=False
+...     @property
+...     def pinrapple_allowed(self):
+...             return self._pineapple_allowed
+...     @pineapple_allowed.setter
+...     def pineaple_allowed(self,value):
+...             if value:
+...                     pasword=input('enter the password:')
+...                     if password=='SwOrdflsh!':
+...                             self._pineapply_allowed= value
+...                     else:
+...                             raise ValueError('Alert! Inturder!')
+...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 8, in Pizza
+NameError: name 'pineapple_allowed' is not defined
+>>> class Pizza:
+...     def __init__(self,toppings):
+...             self.toppoings-toppings
+...             self._pineapple_allowed=False
+...     @property
+...     def pineapple_allowed(self):
+...             return self._pineapple_allowed
+...     @pineapple_allowed.setter
+...     def pineaple_allowed(self,value):
+...             if value:
+...                     pasword=input('enter the password:')
+...                     if password=='SwOrdflsh!':
+...                             self._pineapply_allowed= value
+...                     else:
+...                             raise ValueError('Alert! Inturder!')
+...
+>>> pizza=Pizza(["cheese","tomato"])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in __init__
+AttributeError: 'Pizza' object has no attribute 'toppoings'
+>>> class Pizza:
+...     def __init__(self,toppings):
+...             self.toppings-toppings
+...             self._pineapple_allowed=False
+...     @property
+...     def pineapple_allowed(self):
+...             return self._pineapple_allowed
+...     @pineapple_allowed.setter
+...     def pineaple_allowed(self,value):
+...             if value:
+...                     pasword=input('enter the password:')
+...                     if password=='SwOrdflsh!':
+...                             self._pineapply_allowed= value
+...                     else:
+...                             raise ValueError('Alert! Inturder!')
+... pizza=Pizza(["cheese","tomato"])
+  File "<stdin>", line 16
+    pizza=Pizza(["cheese","tomato"])
+    ^^^^^
+SyntaxError: invalid syntax
+>>> class Pizza:
+...     def __init__(self,toppings):
+...             self.toppings-toppings
+...             self._pineapple_allowed=False
+...     @property
+...     def pineapple_allowed(self):
+...             return self._pineapple_allowed
+...     @pineapple_allowed.setter
+...     def pineaple_allowed(self,value):
+...             if value:
+...                     pasword=input('enter the password:')
+...                     if password=='SwOrdflsh!':
+...                             self._pineapply_allowed= value
+...                     else:
+...                             raise ValueError('Alert! Inturder!')
+...
+>>> pizza=Pizza(["cheese","tomato"])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in __init__
+AttributeError: 'Pizza' object has no attribute 'toppings'
+>>> class Pizza:
+...     def __init__(self,toppings):
+...             self.toppings=toppings
+...             self._pineapple_allowed=False
+...     @property
+...     def pineapple_allowed(self):
+...             return self._pineapple_allowed
+...     @pineapple_allowed.setter
+...     def pineaple_allowed(self,value):
+...             if value:
+...                     pasword=input('enter the password:')
+...                     if password=='SwOrdflsh!':
+...                             self._pineapply_allowed= value
+...                     else:
+...                             raise ValueError('Alert! Inturder!')
+...
+>>> pizza=Pizza(["cheese","tomato"])
+>>> print(pizza.pineapple_allowed)
+False
+>>> pizza.pineapple_allowed=True
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: property 'pineapple_allowed' of 'Pizza' object has no setter
+>>> print(pizza.pineapple_allowed)
+False
+>>> pizza.pineapple_allowed=True
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: property 'pineapple_allowed' of 'Pizza' object has no setter
+>>> class Pizza:
+...     def __init__(self,toppings):
+...             self.toppings=toppings
+...             self._pineapple_allowed=False
+...     @property
+...     def pineapple_allowed(self):
+...             return self._pineapple_allowed
+...     @pineapple_allowed.setter
+...     def pineaple_allowed(self,value):
+...             if value:
+...                     pasword=input('enter the password:')
+...                     if password=='SwOrdflsh!':
+...                             self._pineapple_allowed= value
+...                     else:
+...                             raise ValueError('Alert! Inturder!')
+...
+>>> pizza=Pizza(["cheese","tomato"])
+>>> print(pizza.pineapple_allowed)
+False
+>>> pizza.pineapple_allowed=True
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: property 'pineapple_allowed' of 'Pizza' object has no setter
+>>> import re
+>>> pattern = r'spam'
+>>> if re.match(pattern,'spamspam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Match
+>>> import re
+>>> pattern = r'spam'
+>>> if re.match(pattern,'spa'):
+...     print('Not match')
+... else:
+...     print('match')
+...
+match
+>>> import re
+>>> pattern = r'spam'
+>>> if re.match(pattern,'sp'):
+...     print('match')
+... else:
+...     print('not match')
+...
+not match
+>>> import re
+>>> pattern = r'sp'
+>>> if re.match(pattern,'spamspam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Match
+>>> import re
+>>> pattern = r'spam'
+>>> if re.match(pattern,'eggspamsausagespam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Not match
+>>> import re
+>>> pattern = r'sp'
+>>> if re.match(pattern,'spamspam'):
+...     print('Match')
+... else:
+...     print('Not match')
+... if re.search(pattern,'eggspamsausagespam'):
+  File "<stdin>", line 5
+    if re.search(pattern,'eggspamsausagespam'):
+    ^^
+SyntaxError: invalid syntax
+>>> import re
+>>> pattern = r'sp'
+>>> if re.match(pattern,'spamspam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...     if re.search(pattern,'eggspamsausagespam'):
+...             print('Match')
+...     else:
+...             print('Not match')
+...
+Match
+>>> import re
+>>> pattern = r'sp'
+>>> if re.match(pattern,'spamspam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Match
+>>> if re.search(pattern,'eggspamsausagespam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Match
+>>> import re
+>>> pattern = r'spam'
+>>> if re.match(pattern,'eggspamsausagespam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Not match
+>>> if re.match(pattern,'eggspamsausagespam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Not match
+>>> if re.search(pattern,'eggspamsausagespam'):
+...     print('Match')
+... else:
+...     print('Not match')
+...
+Match
+>>> print(re.findall(pattern,'aggspamsausagespam'))
+['spam', 'spam']
+>>> import re
+>>> pattern = r'spam'
+>>> match=re.serch(pattern,'eggspamsausagespam')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 're' has no attribute 'serch'. Did you mean: 'search'?
+>>> match=re.search(pattern,'eggspamsausagespam')
+>>> if match:
+...     print(match.group())
+...     print(match.start())
+...     print(match.end())
+...     print(match.span())
+...
+spam
+3
+7
+(3, 7)
+>>> import re
+>>> pattern=r'text'
+>>> match=re.search(pattern,'some text')
+>>> print(match.start())
+5
+>>> print(match.end())
+9
+>>> import re
+>>> string='老子叫龙傲天，你他妈的哪来的，胆敢在我面前嘤嘤狂吠？'
+>>> pattern=r'龙傲天'
+>>> new_str=re.sub(pattern,"杜舔",str)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'type'
+>>> new_str=re.sub(pattern,"杜舔",string)
+>>> output(new_str)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'output' is not defined
+>>> print(new_str)
+你哪来的，胆敢在我面前嘤嘤狂吠？
+>>> import re
+>>> string=龙傲天，你哪来的，胆敢在我面前嘤嘤狂吠？'
+>>> pattern=r'龙傲天'
+>>> new_str=re.sub(pattern,"杜舔",string)
+>>> print(new_str)
+杜舔，你他哪来的，胆敢在我面前嘤嘤狂吠？
+>>> num='07987549836'
+>>> pattern=r'9'
+>>> num=re.sub(pattern,'0',num)
+>>> print(num)
+07087540836
+>>> import sys
+>>> line=sys.stdin.readline()
+我是驴
+>>> print("你是谁"，line)
+  File "<stdin>", line 1
+    print("你是谁"，line)
+               ^
+SyntaxError: invalid character '，' (U+FF0C)
+>>> print("你是谁?",line)
+你是谁? 我是驴
+
+>>>
