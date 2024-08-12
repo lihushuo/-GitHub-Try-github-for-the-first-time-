@@ -1,0 +1,452 @@
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import re
+>>> pattern=r'[aeiou]'
+>>> if re.search(pattren,'grey'):
+...     print('Match 1')
+...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'pattren' is not defined. Did you mean: 'pattern'?
+>>> if re.search(pattern,'grey'):
+...     print('Match 1')
+...
+Match 1
+>>> if re.search(pattren,'rhythm myths apple'):
+...     print('Match 3')
+...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'pattren' is not defined. Did you mean: 'pattern'?
+>>> if re.search(pattern,'rhythm myths apple'):
+...     print('Match 3')
+...
+Match 3
+>>> pattern=r'[aeiou]'#搜索函数中的模式[aeiou]匹配包含定义的任何一个字符的所有字符串。
+>>> import re
+>>> pattern=r'[A-Z][A-Z][0-9]'
+>>> if re.search(pattern,'LS8556'):
+...     print('Match 1')
+...
+Match 1
+>>> import re
+>>> pattern=r'[A-Z][][0-9]'
+>>> if re.search(pattern,'E3'):
+...
+  File "<stdin>", line 2
+
+    ^
+IndentationError: expected an indented block after 'if' statement on line 1
+>>> if re.search(pattern,'E3'):
+...     print('Match 1')
+...
+Match 1
+>>> import re
+>>> pattern=r'[^A-Z]'#The symbol represents an inversion, which matches any character other than the one it contains
+>>> if re.search(pattern,'this is all quiet'):
+...     print('Match 1')
+...
+Match 1
+>>> if re.search(pattern,'THIS IS ALL QUIET'):
+...     print('Match 3')
+...
+Match 3
+>>> if re.search(pattern,'THISISALLQUIET'):
+...     print('Match 2')
+...
+>>> if re.search(pattern,'THISISALLQUIET'):
+...     print('Match 2')
+... else:
+...     print('Not Match')
+...
+Not Match
+>>> import re
+>>> pattern=r'egg(spam)*'
+>>> if re.search(pattern,'eggspamspamspamspamspamspam'):
+...     print(pattern)
+...
+egg(spam)*
+>>> if re.search(pattern,'eggspamspamspamspamspamspam'):
+...     print(re.search)
+...
+<function search at 0x00000264AC3AA020>
+>>> if re.search(pattern,'eggspamspamspamspamspamspam'):
+...     print(pattern)
+...
+egg(spam)*
+>>> if re.search(pattern,'eggspamspamspamspamspamspam'):
+...     print(pattern)
+...     return pattern
+...
+  File "<stdin>", line 3
+SyntaxError: 'return' outside function
+>>> if re.search(pattern,'eggspamspamspamspamspamspam'):
+...     return pattern
+...     print(pattern)
+...
+  File "<stdin>", line 2
+SyntaxError: 'return' outside function
+>>> import re
+>>> pattern='ice(-)?cream'
+>>> if re.match(pattern,'ice-ceram'):
+...     print('match 1')
+...
+>>> if re.match(pattern,'iceceram'):
+...     print('match 1')
+...
+>>> if re.match(pattern,'ice-cream'):
+...     print('match 1')
+...
+match 1
+>>> if re.match(pattern,'iceceram'):
+...     print('match 2')
+...
+>>> if re.match(pattern,'icecream'):
+...     print('match 2')
+...
+match 2
+>>> if re.match(pattern,'ice---ceram'):
+...     print('match 2')
+...
+>>> import re
+>>> pattern=r'9{1,3}$'
+>>> if re.match(pattern,'9'):
+...     print('Match 1')
+...
+Match 1
+>>> if re.match(pattern,'99'):
+...     print('Match 1')
+...
+Match 1
+>>> if re.match(pattern,'9999'):
+...     print('Match 1')
+...
+>>> import re
+>>> pattern=r'a(bc)(de)(f(g)h)i'
+>>> match=re.match(pattern,'abcdefghijklmnop')
+>>> if match:
+...     print(match.group())
+...     print(match.group(0))
+...     print(match.group(1))
+...     print(match.group(2))
+...     print(match.groups())
+...     print(match.group(3))
+...
+abcdefghi
+abcdefghi
+bc
+de
+('bc', 'de', 'fgh', 'g')
+fgh
+>>> import re
+>>> pattern=r'(?p<first>abc)(?:def)(ghi)'
+>>> match=re.match(pattern,'abcdefghi')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 167, in match
+    return _compile(pattern, flags).match(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 307, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 979, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 849, in _parse
+    raise source.error("unknown extension ?" + char,
+re.error: unknown extension ?p at position 1
+>>> import re
+>>> pattern=r"(?p<first>abc)(?:def)(ghi)"
+>>> match=re.match(pattern,"abcdefghi")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 167, in match
+    return _compile(pattern, flags).match(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 307, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 979, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 849, in _parse
+    raise source.error("unknown extension ?" + char,
+re.error: unknown extension ?p at position 1
+>>> import re
+>>> pattern=r"(?P<first>abc)(?:def)(ghi)"
+>>> match=re.match(pattern,"abcdefghi")
+>>> if match:
+...     print(match.group('first'))
+...     print(match.groups())
+...
+abc
+('abc', 'ghi')
+>>> import re
+>>> pattern = r'gr(a|e)y'
+>>> match = re.match(pattern,'gray')
+>>> if match:
+...     print('match 1')
+...
+match 1
+>>> b=match 2
+  File "<stdin>", line 1
+    b=match 2
+            ^
+SyntaxError: invalid syntax
+>>> b="match 2"
+>>> c='match 3'
+>>> d='match 4'
+>>> if re.match(pattern,'grey');
+  File "<stdin>", line 1
+    if re.match(pattern,'grey');
+                               ^
+SyntaxError: invalid syntax
+>>> if re.match(pattern,'grey'):
+...     print(b)
+...
+match 2
+>>> def Match():
+...
+KeyboardInterrupt
+>>> import re
+>>> pattern=r"(.+)\1"
+>>> if re.match(pattern,'word word'):
+...     print(a)
+...
+>>> if re.match(pattern,'wordword'):
+...     print(a)
+...
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NameError: name 'a' is not defined
+>>> if re.match(pattern,'word word'):
+...     print(b)
+...
+>>> if re.match(pattern,'wordword'):
+...     print(b)
+...
+match 2
+>>> import re
+>>> pattern=r"(.+)\1"
+>>> if re.match(pattern,'word word'):
+...     print(b)
+...
+>>> import re
+>>> pattern=r"(.+)\2"
+>>> if re.match(pattern,'wordword'):
+...     print(b)
+...
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 167, in match
+    return _compile(pattern, flags).match(string)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\__init__.py", line 307, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_compiler.py", line 745, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 979, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 544, in _parse
+    code = _escape(source, this, state)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.1520.0_x64__qbz5n2kfra8p0\Lib\re\_parser.py", line 440, in _escape
+    raise source.error("invalid group reference %d" % group, len(escape) - 1)
+re.error: invalid group reference 2 at position 5
+>>> import re
+>>> pattern =r"(\D+\d)"
+>>> match=re.match(pattern,'Hi 999!')
+>>> if match:
+...     print(b)
+...
+match 2
+>>> match=re.match(pattern,'1,23,456!')
+>>> if match:
+...     print(c)
+...
+>>> match=re.match(pattern,'Hi 1,23,456!')
+>>> if match:
+...     print(d)
+...
+match 4
+>>> for i in range(1,10):
+...     for j in range(1,i+1):
+...             print("{}x{}+{}".format(j,i,j*i),end="")
+...     print()
+...
+1x1+1
+1x2+22x2+4
+1x3+32x3+63x3+9
+1x4+42x4+83x4+124x4+16
+1x5+52x5+103x5+154x5+205x5+25
+1x6+62x6+123x6+184x6+245x6+306x6+36
+1x7+72x7+143x7+214x7+285x7+356x7+427x7+49
+1x8+82x8+163x8+244x8+325x8+406x8+487x8+568x8+64
+1x9+92x9+183x9+274x9+365x9+456x9+547x9+638x9+729x9+81
+>>> for i in range(1,10):
+...     for j in range(1,i+1):
+...             print("{}x{}={}".format(j,i,j*i),end="")
+...     print()
+...
+1x1=1
+1x2=22x2=4
+1x3=32x3=63x3=9
+1x4=42x4=83x4=124x4=16
+1x5=52x5=103x5=154x5=205x5=25
+1x6=62x6=123x6=184x6=245x6=306x6=36
+1x7=72x7=143x7=214x7=285x7=356x7=427x7=49
+1x8=82x8=163x8=244x8=325x8=406x8=487x8=568x8=64
+1x9=92x9=183x9=274x9=365x9=456x9=547x9=638x9=729x9=81
+>>> for i in range(1,10):
+...     for j in range(1,i+1):
+...             print("{}x{}+{}".format(j,i,j*i),end=" ")
+...     print()
+...
+1x1+1
+1x2+2 2x2+4
+1x3+3 2x3+6 3x3+9
+1x4+4 2x4+8 3x4+12 4x4+16
+1x5+5 2x5+10 3x5+15 4x5+20 5x5+25
+1x6+6 2x6+12 3x6+18 4x6+24 5x6+30 6x6+36
+1x7+7 2x7+14 3x7+21 4x7+28 5x7+35 6x7+42 7x7+49
+1x8+8 2x8+16 3x8+24 4x8+32 5x8+40 6x8+48 7x8+56 8x8+64
+1x9+9 2x9+18 3x9+27 4x9+36 5x9+45 6x9+54 7x9+63 8x9+72 9x9+81
+>>> for i in range(1,10):
+...     for j in range(1,i+1):
+...             print("{}x{}={}".format(j,i,j*i),end=" ")
+...     print()
+...
+1x1=1
+1x2=2 2x2=4
+1x3=3 2x3=6 3x3=9
+1x4=4 2x4=8 3x4=12 4x4=16
+1x5=5 2x5=10 3x5=15 4x5=20 5x5=25
+1x6=6 2x6=12 3x6=18 4x6=24 5x6=30 6x6=36
+1x7=7 2x7=14 3x7=21 4x7=28 5x7=35 6x7=42 7x7=49
+1x8=8 2x8=16 3x8=24 4x8=32 5x8=40 6x8=48 7x8=56 8x8=64
+1x9=9 2x9=18 3x9=27 4x9=36 5x9=45 6x9=54 7x9=63 8x9=72 9x9=81
+>>> num = int(input('please enter a number:'))
+please enter a number:65
+>>> fac=1
+>>> if num<0:
+...     print('error!')
+... elif num==0:
+...     print('Error!')
+... else:
+...     for i in range(1,num+1):
+...             fac=fac*i
+...     print("%d的阶乘为%d"%(num,fac))
+...
+65的阶乘为8247650592082470666723170306785496252186258551345437492922123134388955774976000000000000000
+>>> def factorial(x):
+...     x=int(input('please enter a number:'))
+...     fac=1
+...     if x<0:
+...             print('Error!')
+...     elif:
+  File "<stdin>", line 6
+    elif:
+        ^
+SyntaxError: invalid syntax
+>>> def factorial(x):
+...     num = int(input('please enter a number:'))
+...     fac=1
+...     if num<0:
+...             print('error!')
+...     elif num==0:
+...             print('Error!')
+...     else:
+...             for i in range(1,num+1):
+...                     fac=fac*i
+...             print("%d的阶乘为%d"%(num,fac))
+...
+>>> factorial(65)
+please enter a number:65
+65的阶乘为8247650592082470666723170306785496252186258551345437492922123134388955774976000000000000000
+>>> factorial(65)
+please enter a number:17
+17的阶乘为355687428096000
+>>> factorial(65)
+please enter a number:177
+177的阶乘为35028850546302858099329632808581946958330777310287381335557392498211882659489182680375113878618436056819965633223379924827037455308366548670588021699824718224591058237053509662339734873457437533572003084405728604488740447501223027157048421341653372149720729437766809178439438827520000000000000000000000000000000000000000000
+>>> factorial()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: factorial() missing 1 required positional argument: 'x'
+>>> def factorial():
+...     num = int(input('please enter a number:'))
+...     fac=1
+...     if num<0:
+...             print('error!')
+...     elif num==0:
+...             print('Error!')
+...     else:
+...             for i in range(1,num+1):
+...                     fac=fac*i
+...             print("%d的阶乘为%d"%(num,fac))
+...
+>>> factorial()
+please enter a number:1
+1的阶乘为1
+>>> factorial()
+please enter a number:2
+2的阶乘为2
+>>> factorial()
+please enter a number:3
+3的阶乘为6
+#计算阶乘
+>>> def factorial():
+...     num = int(input('please enter a number:'))
+...     fac=1
+...     if num<0:
+...             print('error!')
+...     elif num==0:
+...             print('Error!')
+...     else:
+...             for i in range(1,num+1):
+...                     fac=fac*i
+...             print("%d的阶乘为%d"%(num,fac))
+...
+>>> factorial()
+please enter a number:180
+180的阶乘为200896062499134299656951336898466838917540340798867777940435335160044860953395980941180138112097309735631594101037399609671032132186331495273609598531966730972945653558819806475064353856858157445040809209560358463319644664891114256430017824141796753818192338642302693327818731986039603200000000000000000000000000000000000000000000
+>>> def mult_formula:
+  File "<stdin>", line 1
+    def mult_formula:
+                    ^
+SyntaxError: expected '('
+>>> def mult_formula():#九九乘法口诀
+...     for i in range(1,10):
+...             for j in range(1,i+1):
+...                     print("{}x{}+{}".format(i,j,i*j),end=" ")
+...             print()
+...
+>>> mult_formula()
+1x1+1
+2x1+2 2x2+4
+3x1+3 3x2+6 3x3+9
+4x1+4 4x2+8 4x3+12 4x4+16
+5x1+5 5x2+10 5x3+15 5x4+20 5x5+25
+6x1+6 6x2+12 6x3+18 6x4+24 6x5+30 6x6+36
+7x1+7 7x2+14 7x3+21 7x4+28 7x5+35 7x6+42 7x7+49
+8x1+8 8x2+16 8x3+24 8x4+32 8x5+40 8x6+48 8x7+56 8x8+64
+9x1+9 9x2+18 9x3+27 9x4+36 9x5+45 9x6+54 9x7+63 9x8+72 9x9+81
+>>>
